@@ -49,6 +49,10 @@ else if($pp_homepage_style == 'flip')
 {
 	include (TEMPLATEPATH . "/templates/template-homepage-flip.php");
 }
+else if($pp_homepage_style == 'slide')
+{
+	include (TEMPLATEPATH . "/templates/template-homepage-slide.php");
+}
 else if($pp_homepage_style == 'youtube_video')
 {
 	include (TEMPLATEPATH . "/templates/template-homepage-youtube_video.php");
