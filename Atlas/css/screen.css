@@ -1878,6 +1878,30 @@ ul.flickr li
 .tf_prev:hover{
 	opacity:0.9;
 }
+.ts_next,
+.ts_prev{
+	width:35px;
+	height:14px;
+	position:absolute;
+	top:79%;
+	right:240px;
+	z-index:100;
+	cursor:pointer;
+	background:transparent url(../images/flip/nav.png) no-repeat top left;
+	opacity:1;
+}
+.ts_next{
+	background-position:0px -14px;
+	margin-top:80px;
+}
+.ts_prev{
+	background-position:0px 0px;
+	margin-top:-55px;
+}
+.ts_next:hover,
+.ts_prev:hover{
+	opacity:0.9;
+}
 .tf_zoom,
 .tf_fullscreen{
 	width:20px;
