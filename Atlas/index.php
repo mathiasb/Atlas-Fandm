@@ -52,7 +52,7 @@ else if($pp_homepage_style == 'flip')
 else if($pp_homepage_style == 'slide')
 {
 	include (TEMPLATEPATH . "/templates/template-homepage-slide.php");
-}
+}// End if homepage as slideshow sideways
 else if($pp_homepage_style == 'youtube_video')
 {
 	include (TEMPLATEPATH . "/templates/template-homepage-youtube_video.php");

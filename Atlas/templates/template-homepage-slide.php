@@ -192,8 +192,8 @@
 				
 				//show next / prev image
 				function scroll(dir){
-					//if dir is "tb" (top -> bottom) increment current, 
-					//else if "bt" decrement it
+					//if dir is "tb" (top -> bottom) increment current, (right-to-left, rl) 
+					//else if "bt" decrement it (left-to-right, lr)
 					current	= (dir == 'tb')?current + 1:current - 1;
 					
 					//we want a circular slideshow, 

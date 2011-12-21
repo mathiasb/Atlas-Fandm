@@ -252,7 +252,7 @@ get_header(); ?>
 						//its dimentions
 						dim				= getImageDim($jtf_bg_img_next),
 						//the top should be one that makes the image out of the viewport
-						//the image should be positioned up or down depending on the direction
+						//the image should be positioned up or down depending on the direction (or rather left or right?)
 							top	= (dir == 'rl')?$j(window).height() + 'px':-parseFloat(dim.height,10) + 'px';
 							
 					//set the returned values and show the next image	
