@@ -1880,23 +1880,23 @@ ul.flickr li
 }
 .ts_next,
 .ts_prev{
-	width:35px;
-	height:14px;
+	width:100px;
+	height:100px;
 	position:absolute;
-	top:79%;
-	right:240px;
+	top:40%;
 	z-index:100;
 	cursor:pointer;
-	background:transparent url(../images/flip/nav.png) no-repeat top left;
 	opacity:1;
 }
 .ts_next{
-	background-position:0px -14px;
-	margin-top:80px;
+	right:10px;
+	background:transparent url(../images/arrow_right.png) no-repeat top left;
+	margin-top:10px;
 }
 .ts_prev{
-	background-position:0px 0px;
-	margin-top:-55px;
+	left:10px;
+	background:transparent url(../images/arrow_left.png) no-repeat top left;
+	margin-top:10px;
 }
 .ts_next:hover,
 .ts_prev:hover{
@@ -1935,4 +1935,24 @@ ul.flickr li
 	border-top: 1px solid #444;
 	margin-top: 15px;
 	padding-top: 10px;
+}
+#fm_cover_content
+{
+	position:fixed;top:16%;left:40px;z-index:9;
+	opacity:0.7;
+}
+.fmstore{
+	width:121px;
+	height:20px;
+	position:absolute;
+	left:75%;
+	bottom:0px;
+	z-index:100;
+	opacity:1;
+	cursor:pointer;
+	background:transparent url(../images/tryit_buyit.png) no-repeat top left;
+	margin-top:10px;
+}
+.fmstore:hover{
+	opacity:0.9;
 }

@@ -72,17 +72,33 @@ get_header(); ?>
         }
        ?>
 </div>
-<div id="tf_thumbs" class="tf_thumbs">
+
+<?php
+	$pp_homepage_logo = get_option('pp_homepage_logo');
+	    			
+	if(empty($pp_homepage_logo))
+	{
+	    $pp_homepage_logo = '/images/cover.png';
+	}
+	else
+	{
+	    $pp_homepage_logo = '/data/'.$pp_homepage_logo;
+	}
+?>
+	<div id="cover_content"><img src="<?php echo get_stylesheet_directory_uri().$pp_homepage_logo; ?>"></div>
+
+<!-- mabe div id="tf_thumbs" class="tf_thumbs">
     <span id="tf_zoom" class="tf_zoom"></span>
-    <?php
+    < ?php
     	$small_image_url = wp_get_attachment_image_src( $all_photo_arr[0]->ID, 'thumbnail');
-    ?>
+    ? >
     <img src="<?php echo $small_image_url[0]; ?>" alt=""/>
-</div>
+</div -->
 
-<div id="tf_next" class="tf_next"></div>
-<div id="tf_prev" class="tf_prev"></div>
+<div id="ts_next" class="ts_next"></div>
+<div id="ts_prev" class="ts_prev"></div>
 
+<div id="fmstore" class="fmstore"></div>
 
 <script type="text/javascript">
 			/*
@@ -112,12 +128,13 @@ get_header(); ?>
 				var $jtf_bg				= $j('#tf_bg'),
 					$jtf_bg_images		= $jtf_bg.find('img'),
 					$jtf_bg_img			= $jtf_bg_images.eq(0),
-					$jtf_thumbs			= $j('#tf_thumbs'),
+//					$jtf_thumbs			= $j('#tf_thumbs'),
+          $jfmstore     = $j('#fmstore'),
 					total				= $jtf_bg_images.length,
 					current				= 0,
 					$jtf_content_wrapper	= $j('#tf_content_wrapper'),
-					$jtf_next			= $j('#tf_next'),
-					$jtf_prev			= $j('#tf_prev'),
+					$jtf_next			= $j('#ts_next'),
+					$jtf_prev			= $j('#ts_prev'),
 					$jtf_loading			= $j('#tf_loading');
 				
 				//preload the images				
@@ -181,14 +198,14 @@ get_header(); ?>
 					$jtf_next.bind('click',function(){
 						if($jtf_bg_img.is(':animated'))
 							return false;
-							scroll('rl');
+							scroll('left');
 					});
 					
 					//click the arrow up, scrolls up
 					$jtf_prev.bind('click',function(){
 						if($jtf_bg_img.is(':animated'))
 						return false;
-						scroll('lr');
+						scroll('right');
 					});
 					
 					//mousewheel events - down / up button trigger the scroll down / up
@@ -197,9 +214,9 @@ get_header(); ?>
 							return false;
 							
 						if(delta > 0)
-							scroll('lr');
+							scroll('right');
 						else
-							scroll('rl');
+							scroll('left');
 						return false;
 					});
 					
@@ -210,11 +227,19 @@ get_header(); ?>
 						
 						switch(e.which){
 							case 38:	
-								scroll('lr');
+								scroll('right');
 								break;	
 
 							case 40:	
-								scroll('rl');
+								scroll('left');
+								break;
+
+							case 37:	
+								scroll('right');
+								break;	
+
+							case 39:	
+								scroll('left');
 								break;
 						}
 					});
@@ -224,11 +249,11 @@ get_header(); ?>
 				function scroll(dir){
 					//if dir is "tb" (top -> bottom) increment current (go to next), --> right-to-left
 					//else if "bt" decrement it (go to previous) --> left-to-right
-					if (dir == 'tb') dir = 'rl';
-					else if (dir == 'bt') dir = 'lr';
-					else if ((dir != 'lr') && (dir != 'rl')) return false;
+					if (dir == 'tb') dir = 'left';
+					else if (dir == 'bt') dir = 'right';
+					else if ((dir != 'right') && (dir != 'left')) return false;
 					
-					current	= (dir == 'rl')?current + 1:current - 1;
+					current	= (dir == 'left')?current + 1:current - 1;
 					
 					//we want a circular slideshow, 
 					//so we need to check the limits of current
@@ -236,7 +261,7 @@ get_header(); ?>
 					else if(current < 0) current = total - 1;
 					
 					//flip the thumb
-					$jtf_thumbs.flip({
+/*					$jtf_thumbs.flip({
 						direction	: dir,
 						speed		: 400,
 						onBefore	: function(){
@@ -246,7 +271,7 @@ get_header(); ?>
 							$jtf_thumbs.html(content);
 					}
 					});
-
+*/
 					//we get the next image
 					var $jtf_bg_img_next	= $jtf_bg_images.eq(current),
 						//its dimentions
@@ -254,24 +279,25 @@ get_header(); ?>
 						//the top should be one that makes the image out of the viewport
 						//the image should be positioned up or down depending on the direction (or rather left or right?)
 							top	= (dir == 'rl')?$j(window).height() + 'px':-parseFloat(dim.height,10) + 'px';
+							left = (dir == 'left')?$j(window).width() + 'px':-parseFloat(dim.width,10) + 'px';
 							
 					//set the returned values and show the next image	
 						$jtf_bg_img_next.css({
 							width	: dim.width,
 							height	: dim.height,
-							left	: dim.left,
-							top		: top
+							left	: left,
+							top		: dim.top
 						}).show();
 						
 					//now slide it to the viewport
 						$jtf_bg_img_next.stop().animate({
-							top 	: dim.top
+							left 	: dim.left
 						},1000);
 						
 					//we want the old image to slide in the same direction, out of the viewport
-						var slideTo	= (dir == 'rl')?-$jtf_bg_img.height() + 'px':$j(window).height() + 'px';
+						var slideTo	= (dir == 'left')?-$jtf_bg_img.width() + 'px':$j(window).width() + 'px';
 						$jtf_bg_img.stop().animate({
-							top 	: slideTo
+							left 	: slideTo
 						},1000,function(){
 						//hide it
 							$j(this).hide();
