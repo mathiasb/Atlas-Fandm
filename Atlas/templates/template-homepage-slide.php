@@ -50,8 +50,8 @@
     <img src="< ?php echo $small_image_url[0]; ? >" alt=""/>
 </div-->
 
-<div id="tf_next" class="tf_next"></div>
-<div id="tf_prev" class="tf_prev"></div>
+<div id="ts_next" class="ts_next"></div>
+<div id="ts_prev" class="ts_prev"></div>
 
 
 <script type="text/javascript">
@@ -86,8 +86,8 @@
 					total				= $jtf_bg_images.length,
 					current				= 0,
 					$jtf_content_wrapper	= $j('#tf_content_wrapper'),
-					$jtf_next			= $j('#tf_next'),
-					$jtf_prev			= $j('#tf_prev'),
+					$jtf_next			= $j('#ts_next'),
+					$jtf_prev			= $j('#ts_prev'),
 					$jtf_loading			= $j('#tf_loading');
 				
 				//preload the images				
@@ -188,11 +188,11 @@
 								break;
 								
 							case 37:	
-								scroll('left');
+								scroll('right');
 								break;	
 
 							case 39:	
-								scroll('right');
+								scroll('left');
 								break;
 						}
 					});
