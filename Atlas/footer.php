@@ -9,6 +9,41 @@
 
 	<br class="clear"/>
 	<div id="footer">
+	  <div id="secondary_menu_wrapper">
+	  	<!-- Begin logo -->
+					
+			<?php
+				//get custom logo
+				$pp_logo = get_option('pp_logo');
+							
+				if(empty($pp_logo))
+				{
+					$pp_logo = get_stylesheet_directory_uri().'/images/logo.png';
+				}
+				else
+				{
+					$pp_logo = get_stylesheet_directory_uri().'/data/'.$pp_logo;
+				}
+
+			?>
+
+      <img class="logo_wrapper" src="<?php echo $pp_logo?>" alt=""/>
+	  	<!-- End logo -->
+	  	
+		    <!-- Begin secondary nav -->
+		    <?php 	
+		    			//Get page nav
+		    			wp_nav_menu( 
+		    					array( 
+		    						'menu_id'			=> 'second_menu',
+		    						'menu_class'		=> 'nav',
+		    						'theme_location' 	=> 'second-menu',
+		    					) 
+		    			); 
+		    ?>
+		    
+		    <!-- End secondary nav -->
+	  </div>
 		<div id="copyright">
 				<?php
 					/**

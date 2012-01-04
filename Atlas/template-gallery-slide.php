@@ -85,7 +85,7 @@ get_header(); ?>
 	    $pp_homepage_logo = '/data/'.$pp_homepage_logo;
 	}
 ?>
-	<div id="cover_content"><img src="<?php echo get_stylesheet_directory_uri().$pp_homepage_logo; ?>"></div>
+	<div id="fm_cover_content"><img src="<?php echo get_stylesheet_directory_uri().$pp_homepage_logo; ?>"></div>
 
 <!-- mabe div id="tf_thumbs" class="tf_thumbs">
     <span id="tf_zoom" class="tf_zoom"></span>
@@ -97,8 +97,6 @@ get_header(); ?>
 
 <div id="ts_next" class="ts_next"></div>
 <div id="ts_prev" class="ts_prev"></div>
-
-<div id="fmstore" class="fmstore"></div>
 
 <script type="text/javascript">
 			/*
@@ -129,7 +127,6 @@ get_header(); ?>
 					$jtf_bg_images		= $jtf_bg.find('img'),
 					$jtf_bg_img			= $jtf_bg_images.eq(0),
 //					$jtf_thumbs			= $j('#tf_thumbs'),
-          $jfmstore     = $j('#fmstore'),
 					total				= $jtf_bg_images.length,
 					current				= 0,
 					$jtf_content_wrapper	= $j('#tf_content_wrapper'),

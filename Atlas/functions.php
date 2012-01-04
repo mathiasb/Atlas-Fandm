@@ -34,9 +34,16 @@ if(isset($_POST['field_id']) && !empty($_POST['field_id']))
 /*
  *  Setup main navigation menu
  */
-add_action( 'init', 'register_my_menu' );
+add_action( 'init', 'register_my_menus' );
 function register_my_menu() {
 	register_nav_menu( 'primary-menu', __( 'Primary Menu' ) );
+}
+//mabe - added secondary menu to theme
+function register_my_menus() {
+  register_nav_menus( array(
+    'primary-menu' => __( 'Primary Menu' ),
+    'second-menu' => __( 'Secondary Menu' )
+  ));
 }
 
 if ( function_exists( 'add_theme_support' ) ) {

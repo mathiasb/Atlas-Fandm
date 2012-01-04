@@ -422,7 +422,8 @@ body.home #footer
 #copyright
 {
 	margin: 60px 0 0 40px;
-	float: left;
+	padding-right: 20px;
+	float: right;
 	font-size: 11px;
 }
 
@@ -1945,14 +1946,24 @@ ul.flickr li
 	width:121px;
 	height:20px;
 	position:absolute;
-	left:75%;
-	bottom:0px;
+	left:40px;
+	bottom:17px;
 	z-index:100;
 	opacity:1;
 	cursor:pointer;
-	background:transparent url(../images/tryit_buyit.png) no-repeat top left;
-	margin-top:10px;
+	background:transparent url(../images/fandm_tryitbuyit.png) no-repeat top left;
 }
 .fmstore:hover{
 	opacity:0.9;
+}
+body.home #footer
+{
+	display:inline;
+}
+#secondary_menu_wrapper
+{
+	width: 100%;
+	margin: 0;
+	background: transparent url('../images/menu_bg.png') repeat;
+	z-index:999;
 }
