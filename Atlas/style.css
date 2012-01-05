@@ -7,18 +7,4 @@ Author URI: http://themeforest.net/user/peerapong
 */
 
 @import "css/screen.css";
-
-
-/*
-This style is for the navigation menu text elements
-*/
-.nav li a
-{
-        text-transform:uppercase;
-        color: #ccc;
-        padding: 10px 5px 18px 5px;
-	font-family: Hoefler;
-	font-weight: strong;
-	font-size: 13px;
-}
-
+@import "css/fandm.css";
