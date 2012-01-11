@@ -5,7 +5,8 @@ This style is for the navigation menu text elements
 {
   text-transform:uppercase;
   color: #ccc;
-  padding: 10px 5px 18px 5px;
+/*  padding: 10px 5px 18px 5px; */
+  padding: 0px;
 	font-family: Hoefler;
 	font-weight: bold;
 	font-style: italic;
@@ -54,7 +55,10 @@ Styles for Slide template
 #fm_cover_content
 {
 	position:fixed;top:16%;left:40px;z-index:9;
-	opacity:0.7;
+}
+.fm_big_logo
+{
+	opacity:0.4;
 }
 /*
 .fmstore{
@@ -82,4 +86,8 @@ body.home #footer
 	margin: 0;
 	background: transparent url('../images/menu_bg.png') repeat;
 	z-index:999;
+}
+#secondary_menu_wrapper .nav li a
+{
+  background-color: #c00;
 }
