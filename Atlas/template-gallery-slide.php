@@ -85,7 +85,7 @@ get_header(); ?>
 	    $pp_homepage_logo = '/data/'.$pp_homepage_logo;
 	}
 ?>
-	<div id="fm_cover_content"><img src="<?php echo get_stylesheet_directory_uri().$pp_homepage_logo; ?>"></div>
+	<div id="fm_cover_content"><img class="fm_big_logo" src="<?php echo get_stylesheet_directory_uri().$pp_homepage_logo; ?>"></div>
 
 <!-- mabe div id="tf_thumbs" class="tf_thumbs">
     <span id="tf_zoom" class="tf_zoom"></span>
@@ -216,7 +216,7 @@ get_header(); ?>
 							scroll('left');
 						return false;
 					});
-					
+										
 					//key events - down / up button trigger the scroll down / up
 					$j(document).keydown(function(e){
 						if($jtf_bg_img.is(':animated'))
