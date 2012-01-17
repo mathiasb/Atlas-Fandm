@@ -9,25 +9,7 @@
 
 	<br class="clear"/>
 	<div id="footer">
-	  	<!-- Begin logo -->
-					
-			<?php
-				//get custom logo
-				$pp_logo = get_option('pp_logo');
-							
-				if(empty($pp_logo))
-				{
-					$pp_logo = get_stylesheet_directory_uri().'/images/logo.png';
-				}
-				else
-				{
-					$pp_logo = get_stylesheet_directory_uri().'/data/'.$pp_logo;
-				}
 
-			?>
-
-        <img class="logo_wrapper" src="<?php echo $pp_logo?>" alt=""/>
-	  	<!-- End logo -->
 	  	<div class="fmstore"></div>
 	  	
 		<div id="copyright">
