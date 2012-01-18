@@ -10,7 +10,7 @@
 	<br class="clear"/>
 	<div id="footer">
 
-	  	<div class="fmstore"></div>
+	  	<div class="fmstore"><a href="http://store.fredandmatt.com"><img id="store_img" src="http://db.tt/vX0sRmEi"/></a></div>
 	  	
 		<div id="copyright">
 				<?php
