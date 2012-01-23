@@ -10,7 +10,9 @@
 	<br class="clear"/>
 	<div id="footer">
 
-	  	<div class="fmstore"><a href="http://store.fredandmatt.com"><img id="store_img" src="http://db.tt/vX0sRmEi"/></a></div>
+        <!--div class="fmstore_button"><a href="http://beta.fredandmatt.com/wordpress/?page_id=20"><img src="http://db.tt/vX0sRmEi"/></a><div class="fmstore"></div></div-->
+	  	<div class="fmstore"><div class="buttonface"><a href="http://beta.fredandmatt.com/wordpress/?page_id=20"><img id="store_img" src="http://db.tt/vX0sRmEi"/></a></div></div>
+	  	
 	  	
 		<div id="copyright">
 				<?php
