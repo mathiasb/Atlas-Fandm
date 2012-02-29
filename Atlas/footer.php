@@ -10,9 +10,8 @@
 	<br class="clear"/>
 	<div id="footer">
 
-        <!--div class="fmstore_button"><a href="http://beta.fredandmatt.com/wordpress/?page_id=20"><img src="http://db.tt/vX0sRmEi"/></a><div class="fmstore"></div></div-->
-	  	<div class="fmstore"><div class="buttonface"><a href="http://beta.fredandmatt.com/wordpress/?page_id=20"><img id="store_img" src="http://db.tt/vX0sRmEi"/></a></div></div>
-	  	
+        <!--div class="fmstore_button"><a href="http://shop.fredandmatt.com/"><img src="http://db.tt/vX0sRmEi"/></a><div class="fmstore"></div></div-->
+	  	<div class="fmstore"><div class="buttonface"><a href="http://shop.fredandmatt.com/"><img id="store_img" src="http://db.tt/vX0sRmEi" alt="Try it & Buy it"/></a></div></div>
 	  	
 		<div id="copyright">
 				<?php
