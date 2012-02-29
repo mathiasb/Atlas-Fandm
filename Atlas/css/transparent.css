@@ -2,7 +2,7 @@
 {
 	height:50px;
 	background: transparent url('../images/menu_transparent.png') repeat;
-	border-bottom: 1px solid #666;
+	border-bottom: 0px solid #666;
 	-webkit-box-shadow: 0 1px 2px rgba(0,0,0,.7);
 	-moz-box-shadow: 0 1px 2px rgba(0,0,0,.7);
 	box-shadow: 0 1px 2px rgba(0,0,0,.7);
@@ -22,7 +22,7 @@
 {
 	height:50px;
 	background: transparent url('../images/menu_transparent.png') repeat;
-	border-top: 1px solid #666;
+	border-top: 0px solid #666;
 	-webkit-box-shadow: 0 -1px 2px rgba(0,0,0,.7);
 	-moz-box-shadow: 0 -1px 2px rgba(0,0,0,.7);
 	box-shadow: 0 -1px 2px rgba(0,0,0,.7);

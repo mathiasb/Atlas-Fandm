@@ -42,16 +42,16 @@
         }
        ?>
 </div>
-<div id="tf_thumbs" class="tf_thumbs">
+<!-- mabe div id="tf_thumbs" class="tf_thumbs">
     <span id="tf_zoom" class="tf_zoom"></span>
-    <?php
+    < ?php
     	$small_image_url = wp_get_attachment_image_src( $all_photo_arr[0]->ID, 'thumbnail');
-    ?>
-    <img src="<?php echo $small_image_url[0]; ?>" alt=""/>
-</div>
+    ? >
+    <img src="< ?php echo $small_image_url[0]; ? >" alt=""/>
+</div-->
 
-<div id="tf_next" class="tf_next"></div>
-<div id="tf_prev" class="tf_prev"></div>
+<div id="ts_next" class="ts_next"></div>
+<div id="ts_prev" class="ts_prev"></div>
 
 
 <script type="text/javascript">
@@ -82,12 +82,12 @@
 				var $jtf_bg				= $j('#tf_bg'),
 					$jtf_bg_images		= $jtf_bg.find('img'),
 					$jtf_bg_img			= $jtf_bg_images.eq(0),
-					$jtf_thumbs			= $j('#tf_thumbs'),
+//mabe					$jtf_thumbs			= $j('#tf_thumbs'),
 					total				= $jtf_bg_images.length,
 					current				= 0,
 					$jtf_content_wrapper	= $j('#tf_content_wrapper'),
-					$jtf_next			= $j('#tf_next'),
-					$jtf_prev			= $j('#tf_prev'),
+					$jtf_next			= $j('#ts_next'),
+					$jtf_prev			= $j('#ts_prev'),
 					$jtf_loading			= $j('#tf_loading');
 				
 				//preload the images				
@@ -151,14 +151,14 @@
 					$jtf_next.bind('click',function(){
 						if($jtf_bg_img.is(':animated'))
 							return false;
-							scroll('tb');
+							scroll('tb'); // left
 					});
 					
 					//click the arrow up, scrolls up
 					$jtf_prev.bind('click',function(){
 						if($jtf_bg_img.is(':animated'))
 						return false;
-						scroll('bt');
+						scroll('bt'); // right
 					});
 					
 					//mousewheel events - down / up button trigger the scroll down / up
@@ -167,9 +167,9 @@
 							return false;
 							
 						if(delta > 0)
-							scroll('bt');
+							scroll('bt'); // right
 						else
-							scroll('tb');
+							scroll('tb'); // left
 						return false;
 					});
 					
@@ -180,11 +180,19 @@
 						
 						switch(e.which){
 							case 38:	
-								scroll('bt');
+								scroll('bt'); // right
 								break;	
 
 							case 40:	
-								scroll('tb');
+								scroll('tb'); // left
+								break;
+								
+							case 37:	
+								scroll('right');
+								break;	
+
+							case 39:	
+								scroll('left');
 								break;
 						}
 					});
@@ -194,7 +202,11 @@
 				function scroll(dir){
 					//if dir is "tb" (top -> bottom) increment current, (right-to-left, rl) 
 					//else if "bt" decrement it (left-to-right, lr)
-					current	= (dir == 'tb')?current + 1:current - 1;
+					if (dir == 'tb') dir = 'left';
+					else if (dir == 'bt') dir = 'right';
+					else if (dir != 'left' && dir != 'right') return false;
+					
+					current	= (dir == 'left')?current + 1:current - 1;
 					
 					//we want a circular slideshow, 
 					//so we need to check the limits of current
@@ -202,7 +214,7 @@
 					else if(current < 0) current = total - 1;
 					
 					//flip the thumb
-					$jtf_thumbs.flip({
+/*mabe					$jtf_thumbs.flip({
 						direction	: dir,
 						speed		: 400,
 						onBefore	: function(){
@@ -211,7 +223,7 @@
 							content		+='<img src="' + $jtf_bg_images.eq(current).attr('longdesc') + '" alt="Thumb' + (current+1) + '"/>';
 							$jtf_thumbs.html(content);
 					}
-					});
+					});*/
 
 					//we get the next image
 					var $jtf_bg_img_next	= $jtf_bg_images.eq(current),
@@ -219,25 +231,26 @@
 						dim				= getImageDim($jtf_bg_img_next),
 						//the top should be one that makes the image out of the viewport
 						//the image should be positioned up or down depending on the direction
-							top	= (dir == 'tb')?$j(window).height() + 'px':-parseFloat(dim.height,10) + 'px';
+							top	= (dir == 'left')?$j(window).height() + 'px':-parseFloat(dim.height,10) + 'px';
+							left = (dir == 'left')?$j(window).width() + 'px':-parseFloat(dim.width,10) + 'px';
 							
 					//set the returned values and show the next image	
 						$jtf_bg_img_next.css({
 							width	: dim.width,
 							height	: dim.height,
-							left	: dim.left,
-							top		: top
+							left	: left,
+							top		: dim.top
 						}).show();
 						
 					//now slide it to the viewport
 						$jtf_bg_img_next.stop().animate({
-							top 	: dim.top
+							left 	: dim.left
 						},1000);
 						
 					//we want the old image to slide in the same direction, out of the viewport
-						var slideTo	= (dir == 'tb')?-$jtf_bg_img.height() + 'px':$j(window).height() + 'px';
+						var slideTo	= (dir == 'left')?-$jtf_bg_img.width() + 'px':$j(window).width() + 'px';
 						$jtf_bg_img.stop().animate({
-							top 	: slideTo
+							left 	: slideTo
 						},1000,function(){
 						//hide it
 							$j(this).hide();

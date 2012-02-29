@@ -71,7 +71,7 @@ get_header();
 			    	
 			    	<div class="sidebar_content <?php echo $page_class; ?>">
 			    	
-			    			<h1 class="cufon"><?php the_title(); ?></h1><br/><hr/>
+			    			<h1 class="cufon"><?php the_title(); ?></h1><br/>
 			    			<?php do_shortcode(the_content()); ?>
 			    			
 			    	</div>

@@ -336,7 +336,7 @@ if(!empty($pp_h1_font_color))
 
 	<!-- Begin template wrapper -->
 	<div id="wrapper">
-	
+				
 		<div id="menu_wrapper">
 			
 			<!-- Begin logo -->
@@ -373,5 +373,4 @@ if(!empty($pp_h1_font_color))
 		    ?>
 		    
 		    <!-- End main nav -->
-		    
 		</div>

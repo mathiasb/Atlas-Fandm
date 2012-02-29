@@ -301,6 +301,7 @@ array( "name" => "Homepage styles",
 	"options" => array(
 		'f' => 'Full Screen',
 		'fn' => 'Full Screen with no thumbnails',
+		'slide' => 'Slide',
 		'flip' => 'Flip',
 		'static' => 'Static Image',
 		'youtube_video' => 'Youtube Video Background',
