@@ -373,5 +373,4 @@ if(!empty($pp_h1_font_color))
 		    ?>
 		    
 		    <!-- End main nav -->
-		    
 		</div>
