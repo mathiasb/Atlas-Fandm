@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <?php
 /**
  * The main template file for display portfolio page.
